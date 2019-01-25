@@ -3,6 +3,8 @@ package org.andestech.learning.rfb19.g3;
 public class App3 {
 
     static private final double WITHDRAWAL_LIMIT=1000;
+    static private final double MIN_BALLANCE_LIMIT=10;
+
     private static double balance = 23000;
 
     private static void withdrawal(double m) throws BalanceException
@@ -11,6 +13,8 @@ public class App3 {
        {
           throw new BalanceException("Over limit! " + m, m-WITHDRAWAL_LIMIT);
        }
+
+
 
        balance -= m;
     }
