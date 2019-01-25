@@ -23,7 +23,7 @@ public class App3 {
        balance -= m;
     }
 
-    public static void main(String[] args) throws BalanceException,LowBallanceException
+    public static void main(String[] args) //throws BalanceException,LowBallanceException
     {
 
         try{
@@ -47,13 +47,13 @@ public class App3 {
             System.out.println("finally block!");
         }
 
-        System.out.println("end of main..");
 
+        try {
         System.out.println("balance=" + balance);
         withdrawal(200);
         System.out.println("balance=" + balance);
 
-        try {
+        //try {
             withdrawal(500);
             System.out.println("balance=" + balance);
             withdrawal(280);
@@ -69,7 +69,7 @@ public class App3 {
             ex.printStackTrace();
         }
 
-
+        System.out.println("end of main..");
     }
 
 }
