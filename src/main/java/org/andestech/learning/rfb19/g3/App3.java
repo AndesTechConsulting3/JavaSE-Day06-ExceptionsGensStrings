@@ -2,7 +2,7 @@ package org.andestech.learning.rfb19.g3;
 
 public class App3 {
 
-    static private final double WITHDRAWAL_LIMIT=1000;
+    static private final double WITHDRAWAL_LIMIT=500;
     static private final double MIN_BALLANCE_LIMIT=10;
 
     private static double balance = 1000;
@@ -56,7 +56,7 @@ public class App3 {
         //try {
             withdrawal(500);
             System.out.println("balance=" + balance);
-            withdrawal(280);
+            withdrawal(298);
             System.out.println("balance=" + balance);
         }
         catch (BalanceException ex)
