@@ -5,21 +5,25 @@ public class App3 {
     static private final double WITHDRAWAL_LIMIT=1000;
     static private final double MIN_BALLANCE_LIMIT=10;
 
-    private static double balance = 23000;
+    private static double balance = 1000;
 
-    private static void withdrawal(double m) throws BalanceException
+    private static void withdrawal(double m) throws BalanceException, LowBallanceException
     {
        if(m > WITHDRAWAL_LIMIT)
        {
           throw new BalanceException("Over limit! " + m, m-WITHDRAWAL_LIMIT);
        }
 
+       if (balance - m < MIN_BALLANCE_LIMIT)
+       {
+           throw new LowBallanceException("You try withdrawal more than min: " + m + ". Operation canceled..");
+       }
 
 
        balance -= m;
     }
 
-    public static void main(String[] args) throws BalanceException
+    public static void main(String[] args) throws BalanceException,LowBallanceException
     {
 
         try{
@@ -50,13 +54,19 @@ public class App3 {
         System.out.println("balance=" + balance);
 
         try {
-            withdrawal(1200);
+            withdrawal(500);
+            System.out.println("balance=" + balance);
+            withdrawal(280);
             System.out.println("balance=" + balance);
         }
         catch (BalanceException ex)
         {
             ex.printStackTrace();
             System.out.println("Over: " + ex.getBallanceOver());
+        }
+        catch (LowBallanceException ex)
+        {
+            ex.printStackTrace();
         }
 
 
